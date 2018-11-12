@@ -58,5 +58,10 @@ appData.expenses[mandatoryItemOfExpenditure] = amountOfExpenses;
 
 // Вывести на экран пользователя бюджет на 1 день (брать месяц за 30 дней, использовать alert)
 
+for (let i = 0; i < array.length; i++) {
+    const element = array[index];
+    
+}
+
 alert("Ваш бюджет на 1 день: "+ Math.round(appData.budget / 30,2));
 

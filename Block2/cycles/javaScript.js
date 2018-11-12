@@ -19,3 +19,5 @@ for(let i = 1; i <= 100; i++){
     }
     console.log(i);
 }
+let a=3, b =2;
+console.log( "ёжик" > "яблоко");
