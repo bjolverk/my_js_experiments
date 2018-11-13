@@ -1,30 +1,12 @@
 'using strict'
 
-//В файле скрипта создать 2 переменные (money и time), которые будут получать данные от пользователя:
-
 var money,
     time;
-/*
- ·      Первая будет спрашивать "Ваш бюджет на месяц?"
 
- ·      Вторая "Введите дату в формате YYYY-MM-DD"*/
 
 money = +prompt("Ваш бюджет на месяц?");
 time = prompt("Введите дату в формате YYYY-MM-DD", "");
 
-/*Создать объект appData, который будет содержать такие данные:
-
-    ·      бюджет (передаем сюда переменную из п.2)
-
-    ·      данные времени - timeData (передаем сюда переменную из п.2)
-
-    ·      объект с обязательными расходами - expenses (смотри пункт 4)
-
-    ·      объект с необязательными расходами - optionalExpenses (оставляем пока пустым)
-
-    ·      массив данных с доп. доходом - income (оставляем пока пустым)
-
-    ·      свойство savings (выставляем его как false)*/
 
 let appData={
     budget : money,
@@ -35,33 +17,31 @@ let appData={
     savings:false
 }
 
-/*
-Задать пользователю по 2 раза вопросы:
 
-    “Введите обязательную статью расходов в этом месяце”
 
-    “Во сколько обойдется?”*/
+for (let i = 0; i < 2; i++) {
+    let need =  prompt("Введите обязательную статью расходов в этом месяце", ""),
+        coast = +prompt("Во сколько обойдется?");
+    if( (typeof(need))==='string' && (typeof(need))!=null && (typeof(coast)) !==null 
+    && need !="" && coast != "" && need.length < 50){
+        console.log("done!");
+        appData.expenses[need]=coast;
+    } else {
+        console.log("Данные не корректны");
+        i--;
+    }
+};
 
-let mandatoryItemOfExpenditure,
-    amountOfExpenses;
+appData.moneyPerDay = Math.round(appData.budget / 30);
 
-mandatoryItemOfExpenditure = prompt("Введите обязательную статью расходов в этом месяце", "");
-amountOfExpenses = +prompt("Во сколько обойдется?");
-appData.expenses[mandatoryItemOfExpenditure] = amountOfExpenses;
-
-mandatoryItemOfExpenditure = prompt("Введите обязательную статью расходов в этом месяце", "");
-amountOfExpenses = +prompt("Во сколько обойдется?");
-appData.expenses[mandatoryItemOfExpenditure] = amountOfExpenses;
-
-//Проверяем
+alert("Ваш бюджет на 1 день: " + appData.moneyPerDay);
 //console.log(appData);
-
-// Вывести на экран пользователя бюджет на 1 день (брать месяц за 30 дней, использовать alert)
-
-for (let i = 0; i < array.length; i++) {
-    const element = array[index];
-    
+if( appData.moneyPerDay < 100 ){
+    console.log("Минимальный уровень достатка");
+} else if(appData.moneyPerDay > 100 && appData.moneyPerDay < 2000){
+    console.log("Средний уровень дохода");
+} else if(appData.moneyPerDay > 2000){
+    console.log("Высокий уровень дохода");
+} else{
+    console.log("Ошибка");
 }
-
-alert("Ваш бюджет на 1 день: "+ Math.round(appData.budget / 30,2));
-
