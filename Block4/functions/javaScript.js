@@ -15,13 +15,13 @@ function learnJS(lang, callback){
     callback();
 }
 
-<<<<<<< HEAD
+
 function done(){
     console.log("Я прошёл третий урок");
 }
 
 learnJS("JavaScript", done); //Внимание! У done нет скобок
-=======
+
 /*
 learnJS("JavaScript", function(){
     console.log("Я прошёл третий урок");
@@ -33,4 +33,4 @@ function theEnd(){
 }
 
 learnJS("JavaScript", theEnd);
->>>>>>> 9f5cb88bb347cb1b2e2d4650070a8c06097ac3c2
+
