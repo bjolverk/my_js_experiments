@@ -15,6 +15,8 @@ function learnJS(lang, callback){
     callback();
 }
 
-learnJS("JavaScript", function(){
+function done(){
     console.log("Я прошёл третий урок");
-});
+}
+
+learnJS("JavaScript", done); //Внимание! У done нет скобок
