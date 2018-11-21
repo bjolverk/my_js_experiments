@@ -56,6 +56,7 @@ function chooseOptExpenses() {
             && need !="" && coast != "" && need.length < 50){
             console.log("done!");
             appData.expenses[need]=coast;
+            }
         }
     } else{
         console.log("Как хотите");
