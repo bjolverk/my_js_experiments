@@ -79,10 +79,30 @@ let appData = {
         }
     },
     chooseIncome: function(){
-        let items = prompt("Что принесет дополнительный доход? (Перечислите через запятую)", "");
-        appData.income = items.split(', ');
-        appData.income.push(prompt("Может что-то еще?"));
-        appData.income.sort();
+        let isCorrect = false;
+        while(!isCorrect){
+            let items = prompt("Что принесет дополнительный доход? (Перечислите через запятую)", "");
+            if( (typeof(items)) == "string" && isNaN(parseInt(items)) && (items !="") && (items != null)){ // Не понимаю, как тут сделать проверку на ввод строки.
+                appData.income = items.split(', '); // Делим строку на члены массива, для разбиения используем запятую.
+                appData.income.push(prompt("Может что-то еще?")); // Задаём вопрос о забытом и добавляем его в массив
+                appData.income.sort(); // Сортируем массив.
+                isCorrect = true;
+            }else{
+                console.log("Вы ввели не корректное значение");
+            }
+
+            
+
+        }
+      
+        /*
+        for(let i= 0; i<appData.income.length; i++){
+            alert("Способ заработка номер " + (i+1) + " " + appData.income[i] );
+        }
+        */
+       for(let i in appData.income){
+           console.log("Способ заработка номер " + (parseInt(i)+ 1) + " " + appData.income[i] );
+       }
     }
 
 };
@@ -126,10 +146,4 @@ do{
 }while(a < 2);
 */
 // appData.moneyPerDay = Math.round(appData.budget / 30);
-
-
-
-
-
 //console.log(appData);
-
