@@ -1,8 +1,8 @@
 let box = document.getElementById('box'),
     btn = document.getElementsByTagName('button'),
     circle = document.getElementsByClassName('circle'),
-    heart = document.querySelectorAll('.heart'),
-    oneHeart = document.querySelector('.heart'),
+    heart = document.querySelectorAll('.heart'), // Все значения с данным классом
+    oneHeart = document.querySelector('.heart'),//Первое значение с данным классом
     wrapper = document.querySelector('.wrapper');
 
 box.style.backgroundColor = 'blue';
