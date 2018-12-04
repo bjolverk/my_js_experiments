@@ -19,10 +19,15 @@ let startCalculation = document.getElementById('start'),
     percentValue = document.querySelector('.choose-percent'),
     yearValue = document.querySelector('year-value'),
     monthValue = document.querySelector('month-value'),
-    dayValue = document.querySelector('.day-value');
+    dayValue = document.querySelector('.day-value'),
+    title = document.getElementsByClassName('title')[0],
+    titleOther = document.querySelector('.title');
+    
 
     'using strict';
-
+    //title.style.fontSize="25px";
+    //titleOther.style.fontSize = "100px"; // Вот как это делается!
+    console.log(title);
     let money,
         time;
     
@@ -129,44 +134,3 @@ let startCalculation = document.getElementById('start'),
         }
     
     };
-    
-    
-    
-    
-    
-    
-    /*
-    let a= 0;
-    while(a < 2){
-        let need =  prompt("Введите обязательную статью расходов в этом месяце", ""),
-        coast = +prompt("Во сколько обойдется?");
-        if( (typeof(need))==='string' && (typeof(need))!=null && (typeof(coast)) !==null
-        && need !="" && coast != "" && need.length < 50){
-            console.log("done!");
-            appData.expenses[need]=coast;
-            a++;
-        } else {
-            console.log("Данные не корректны");
-            a--;
-        }
-    }
-    */
-    /*
-    let a= 0;
-    do{
-        let need =  prompt("Введите обязательную статью расходов в этом месяце", ""),
-        coast = +prompt("Во сколько обойдется?");
-        if( (typeof(need))==='string' && (typeof(need))!=null && (typeof(coast)) !==null
-        && need !="" && coast != "" && need.length < 50){
-            console.log("done!");
-            appData.expenses[need]=coast;
-            a++;
-        } else {
-            console.log("Данные не корректны");
-            a--;
-        }
-    
-    }while(a < 2);
-    */
-    // appData.moneyPerDay = Math.round(appData.budget / 30);
-    //console.log(appData);
