@@ -14,7 +14,8 @@ let startCalculation = document.getElementById('start'),
     calculateBtn = document.getElementsByTagName('button')[2],
     optionalExpenses = document.querySelectorAll('.optionalexpenses-item'),
     possibleIncome = document.querySelector('.choose-income'),
-    checkSavings = document.querySelector('.checkbox'),
+    //checkSavings = document.getElementById('savings'),
+    checkSavings = document.querySelector('#savings'),
     sumValue = document.querySelector('.choose-sum'),
     percentValue = document.querySelector('.choose-percent'),
     yearValue = document.querySelector('.year-value'),
@@ -76,9 +77,13 @@ let startCalculation = document.getElementById('start'),
     calculateBtn.addEventListener('click', function() {
 
         if(appData.budget != undefined){
-
-        
-            appData.moneyPerDay = (appData.budget / 30).toFixed();
+            /*
+            let newSum = 0;
+            for(let key in appData.expenses){
+                newSum += +appData.expenses[key];
+            }*/
+            //let newSum = + expensesValue.textContent;
+            appData.moneyPerDay = ((appData.budget - +expensesValue.textContent) / 30).toFixed();
             daybudgetValue.textContent = appData.moneyPerDay;
 
             if (appData.moneyPerDay < 100) {
@@ -95,10 +100,47 @@ let startCalculation = document.getElementById('start'),
     }
     });
 
-    possibleIncome.addEventListener('input', function () {
+    possibleIncome.addEventListener('input', function () {  // Можно change
         let items = possibleIncome.value;
         appData.income = items.split(', ');
         incomeValue.textContent = appData.income;
+    });
+
+    checkSavings.addEventListener('click', function(){
+        if(appData.savings == true){
+            appData.savings = false;
+        }else{
+            appData.savings=true;
+        }
+    });
+
+    sumValue.addEventListener('input', function(){
+        if(appData.savings == true){
+            let sum = + sumValue.value,
+                percent = +percentValue.value;
+
+            appData.monthIcome = sum/100/12*percent;
+            appData.yearIcome = sum/100*percent;
+
+
+            monthSavingsValue.textContent = appData.monthIcome.toFixed(1);
+            yearSavingsValue.textContent = appData.yearIcome.toFixed(1);
+
+        }
+    });
+
+    percentValue.addEventListener('input', function(){
+        if(appData.savings == true){
+            let sum = + sumValue.value,
+                percent = +percentValue.value;
+
+            appData.monthIcome = sum/100/12*percent;
+            appData.yearIcome = sum/100*percent;
+
+
+            monthSavingsValue.textContent = appData.monthIcome.toFixed(1);
+            yearSavingsValue.textContent = appData.yearIcome.toFixed(1);
+        }
     });
 
     let appData = {
@@ -107,7 +149,7 @@ let startCalculation = document.getElementById('start'),
         expenses: {},
         optionalExpenses: {},
         income: [],
-        savings: true,
+        savings: false,
         chooseExpences: function(){
            
         },
@@ -171,4 +213,4 @@ let startCalculation = document.getElementById('start'),
            //}
         //}
     
-    };
+};
