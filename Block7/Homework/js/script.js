@@ -2,7 +2,7 @@ let menu = document.querySelector('.menu'),
     adv= document.querySelector('.adv'),
     title= document.getElementById('title'),
     userMeaning = document.getElementById('prompt');
- let menuVithItems = document.getElementsByClassName('menu');
+ let menuVithItems = document.querySelectorAll('.menu-item');
 
 let newLi = document.createElement('li');
 newLi.classList.add('menu-item');
@@ -18,4 +18,3 @@ let userAnswer = prompt("Как Вы тоноситесь к технике Appl
 userMeaning.textContent = userAnswer;
 
 console.log(menuVithItems);
-console.log(menuVithItems[0]);
